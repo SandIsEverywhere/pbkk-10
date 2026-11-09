@@ -16,6 +16,14 @@ This project implements a robust relational database schema and ORM architecture
 
 The repository includes complete database migrations with strict foreign key cascading rules, Eloquent models with strongly-typed return annotations (`BelongsTo`, `HasMany`, `MorphMany`, `MorphTo`), database factories and seeders (`ChatDemoSeeder`), an N+1 optimized chat session viewer with a live debug demonstration toggle, and a polymorphic agent log overview page (`/agents`).
 
+## Academic Administration
+
+The authenticated back office uses Laravel AdminLTE at `/admin/dashboard`. The dashboard is restricted to users with the Spatie `admin` role and shows live counts for mahasiswa, departments, and tugas. Its student search matches either name or NRP.
+
+Admins can create and filter tugas at `/admin/tugas` by department and search text. The delete endpoint additionally requires the `kelola-tugas` permission. New registrations receive the `mahasiswa` role; the `RoleAndPermissionSeeder` also creates the `asisten-dosen` role with `kelola-nilai`.
+
+Run `php artisan migrate --seed` to create the academic tables, permissions, and starter departments. The demo admin seeded by `DatabaseSeeder` is `test@example.com` with password `password`; replace its password before deploying any seeded environment.
+
 ## Schema / ERD
 
 ```mermaid
