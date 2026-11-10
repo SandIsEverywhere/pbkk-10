@@ -59,8 +59,6 @@ Run `php artisan db:seed --class=RoleAndPermissionSeeder` to initialize or updat
 - Email: `test@example.com`
 - Password: `password`
 
-This is a development-only account. Change or remove its credentials before using seeded data in a deployed environment.
-
 The separate `ChatDemoSeeder` creates a `demo@example.com` account with the password `password` and sample chat and agent data. That account is for the chat demo and is not assigned the `admin` role.
 
 ## Existing chat and agent demo
