@@ -54,7 +54,7 @@ The `RoleAndPermissionSeeder` initializes Spatie's database-backed authorization
 
 Authorization data is stored in Spatie's `roles`, `permissions`, and pivot tables. Middleware aliases for `role` and `permission` are registered in `bootstrap/app.php`.
 
-Run `php artisan db:seed --class=RoleAndPermissionSeeder` to initialize or update the roles and permissions. Run `php artisan db:seed` to seed all application demo data, including three departments and an admin account:
+Run `php artisan db:seed --class=RoleAndPermissionSeeder` to initialize or update the roles, permissions, and documented admin test account. This is safe to rerun: it resets `test@example.com` to the password below and restores its `admin` role. Run `php artisan db:seed` to seed all application demo data, including three departments and the chat demo:
 
 - Email: `test@example.com`
 - Password: `password`

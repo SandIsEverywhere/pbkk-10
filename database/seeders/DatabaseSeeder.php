@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -19,16 +18,6 @@ class DatabaseSeeder extends Seeder
             RoleAndPermissionSeeder::class,
             DepartmentSeeder::class,
         ]);
-
-        $admin = User::firstOrCreate(
-            ['email' => 'test@example.com'],
-            [
-                'name' => 'Test User',
-                'email_verified_at' => now(),
-                'password' => 'password',
-            ]
-        );
-        $admin->assignRole('admin');
 
         $this->call(ChatDemoSeeder::class);
     }

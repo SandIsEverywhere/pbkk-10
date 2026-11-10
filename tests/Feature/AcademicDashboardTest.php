@@ -33,6 +33,16 @@ class AcademicDashboardTest extends TestCase
         $this->assertDatabaseCount('departments', 3);
     }
 
+    public function test_documented_admin_credentials_can_log_in(): void
+    {
+        $this->post(route('login'), [
+            'email' => 'test@example.com',
+            'password' => 'password',
+        ])->assertRedirect(route('dashboard'));
+
+        $this->assertAuthenticatedAs(User::where('email', 'test@example.com')->firstOrFail());
+    }
+
     public function test_admin_dashboard_shows_dynamic_statistics_and_is_not_available_to_students(): void
     {
         $admin = User::factory()->create();

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -25,6 +26,16 @@ class RoleAndPermissionSeeder extends Seeder
         $asistenDosen->syncPermissions($permissions['kelola-nilai']);
 
         Role::firstOrCreate(['name' => 'mahasiswa', 'guard_name' => 'web']);
+
+        $adminUser = User::updateOrCreate(
+            ['email' => 'test@example.com'],
+            [
+                'name' => 'Test User',
+                'email_verified_at' => now(),
+                'password' => 'password',
+            ]
+        );
+        $adminUser->syncRoles($admin);
 
         app(PermissionRegistrar::class)->forgetCachedPermissions();
     }
